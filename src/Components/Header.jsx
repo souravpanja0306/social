@@ -9,7 +9,7 @@ const Header = () => {
                 <div className=''>
                     <NavLink to="/" className={`font-semibold text-green-500 cursor-pointer flex flex-col justify-center items-center w-full p-1`}>
                         <span></span>
-                        <span className='text-xl'>PetWink</span>
+                        <span className='text-xl'>LovPet</span>
                     </NavLink>
                 </div>
                 <div className='p-1 flex'>

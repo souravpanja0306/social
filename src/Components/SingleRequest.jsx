@@ -1,26 +1,27 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { BsCheck, BsThreeDotsVertical, BsX } from "react-icons/bs";
+import { BsCheck, BsX } from "react-icons/bs";
 
 const SingleRequest = (data) => {
     return (
-        <div className='flex justify-between items-center border border-slate-100 rounded-md p-1 gap-1'>
-            <div className='flex gap-1 items-center'>
-                <img src='./boy.png' className='w-12' />
-                <div className='flex flex-col'>
-                    <Link to={`/user-profile?user=${"Sourav Panja"}`}>
-                        <span className='text-xs'>Sourav Panja</span>
+        <div className="flex justify-between items-center border border-slate-100 rounded-md p-2 gap-2 bg-white shadow-sm">
+            <div className="flex items-center gap-2">
+                <img src="/boy.png" alt="User avatar" className="w-12 h-12 rounded-full object-cover" />
+                <div className="flex flex-col">
+                    <Link to={`/user-profile?user=${encodeURIComponent("Sourav Panja")}`}>
+                        <span className="text-sm font-medium text-gray-800 hover:underline">Sourav Panja</span>
                     </Link>
-                    <span className='text-xs'>1m ago.</span>
+                    <span className="text-xs text-gray-500">1m ago</span>
                 </div>
             </div>
-            <div className='flex justify-center items-center gap-1'>
-                <span className='p-1 flex justify-center items-center text-lg font-semibold text-green-500'>
+
+            <div className="flex items-center gap-2">
+                <button className="p-2 text-lg text-green-500 hover:bg-green-100 rounded-full">
                     <BsCheck />
-                </span>
-                <span className='p-1 flex justify-center items-center text-lg font-semibold text-red-500'>
+                </button>
+                <button className="p-2 text-lg text-red-500 hover:bg-red-100 rounded-full">
                     <BsX />
-                </span>
+                </button>
             </div>
         </div>
     )
