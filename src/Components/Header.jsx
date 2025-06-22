@@ -1,6 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { BsHouse, BsPeople, BsBell, BsPerson, BsSend, BsSearch, BsFileEarmarkPlus } from "react-icons/bs";
+import {
+    BsHouse, BsHouseFill,
+    BsPeople, BsPeopleFill,
+    BsBell, BsBellFill,
+    BsPerson, BsPersonFill,
+    BsSend, BsSearch, BsFileEarmarkPlus,
+} from "react-icons/bs";
 
 const Header = () => {
     return (
@@ -26,21 +32,45 @@ const Header = () => {
                 </div>
             </div>
             <div className='flex justify-between items-center duration-500'>
-                <NavLink to="/" className={({ isActive }) => `${isActive ? "border-b-2 border-green-500 text-green-500" : ""} cursor-pointer flex flex-col justify-center items-center w-full p-1`}>
-                    <span className='text-lg'><BsHouse /></span>
-                    <span className='text-sm'>Home</span>
+                <NavLink to="/" className="w-full">
+                    {({ isActive }) => (
+                        <div className={`${isActive ? "border-b-2 border-green-500 text-green-500" : ""} cursor-pointer flex flex-col justify-center items-center w-full p-1`}>
+                            <span className='text-lg'>
+                                {isActive ? <BsHouseFill /> : <BsHouse />}
+                            </span>
+                            <span className='text-sm'>Home</span>
+                        </div>
+                    )}
                 </NavLink>
-                <NavLink to="/friend-request" className={({ isActive }) => `${isActive ? "border-b-2 border-green-500 text-green-500" : ""} cursor-pointer flex flex-col justify-center items-center w-full p-1`}>
-                    <span className='text-lg'><BsPeople /></span>
-                    <span className='text-sm'>Request</span>
+                <NavLink to="/friend-request" className="w-full">
+                    {({ isActive }) => (
+                        <div className={`${isActive ? "border-b-2 border-green-500 text-green-500" : ""} cursor-pointer flex flex-col justify-center items-center w-full p-1`}>
+                            <span className="text-lg">
+                                {isActive ? <BsPeopleFill /> : <BsPeople />}
+                            </span>
+                            <span className="text-sm">Request</span>
+                        </div>
+                    )}
                 </NavLink>
-                <NavLink to="/notification-list" className={({ isActive }) => `${isActive ? "border-b-2 border-green-500 text-green-500" : ""} cursor-pointer flex flex-col justify-center items-center w-full p-1`}>
-                    <span className='text-lg'><BsBell /></span>
-                    <span className='text-sm'>Notification</span>
+                <NavLink to="/notification-list" className="w-full">
+                    {({ isActive }) => (
+                        <div className={`${isActive ? "border-b-2 border-green-500 text-green-500" : ""} cursor-pointer flex flex-col justify-center items-center w-full p-1`}>
+                            <span className="text-lg">
+                                {isActive ? <BsBellFill /> : <BsBell />}
+                            </span>
+                            <span className="text-sm">Notification</span>
+                        </div>
+                    )}
                 </NavLink>
-                <NavLink to="/profile" className={({ isActive }) => `${isActive ? "border-b-2 border-green-500 text-green-500" : ""} cursor-pointer flex flex-col justify-center items-center w-full p-1`}>
-                    <span className='text-lg'><BsPerson /></span>
-                    <span className='text-sm'>Profile</span>
+                <NavLink to="/profile" className="w-full">
+                    {({ isActive }) => (
+                        <div className={`${isActive ? "border-b-2 border-green-500 text-green-500" : ""} cursor-pointer flex flex-col justify-center items-center w-full p-1`}>
+                            <span className="text-lg">
+                                {isActive ? <BsPersonFill /> : < BsPerson />}
+                            </span>
+                            <span className="text-sm">Profile</span>
+                        </div>
+                    )}
                 </NavLink>
             </div>
         </div>

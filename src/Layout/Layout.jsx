@@ -1,15 +1,13 @@
 import React from 'react'
 import Header from '../Components/Header'
 
-const Layout = ({
-  children = {}
-}) => {
+const Layout = ({ children }) => {
   return (
     <div className=''>
-      <div className='min-h-[10vh]'>
+      <div className='h-[10vh]'>
         <Header />
       </div>
-      <div className='min-h-[90vh] overflow-hidden p-1'>
+      <div className='h-[90vh] overflow-y-scroll p-1 bg-slate-200 z-50'>
         {children}
       </div>
     </div>

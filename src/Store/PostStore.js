@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { getAllPost, likePost } from '../Services/PostService.js';
+import { getAllPost, getSinglePost, likePost } from '../Services/PostService.js';
 
 export const usePostStore = create((set, get) => ({
     posts: [],
@@ -17,6 +17,20 @@ export const usePostStore = create((set, get) => ({
         }
     },
 
+    fetchSinglePosts: async ({
+        postId = "",
+    }) => {
+        set({ isLoading: true });
+        try {
+            const posts = await getSinglePost({ postId: postId });
+            set({ posts: posts.body.data });
+        } catch (error) {
+            console.error('Failed to fetch posts:', error);
+        } finally {
+            set({ isLoading: false });
+        }
+    },
+
     likePost: async ({
         postId = "",
     }) => {
@@ -24,9 +38,12 @@ export const usePostStore = create((set, get) => ({
             const updatedPost = await likePost({ postId });
             if (updatedPost) {
                 set((state) => ({
-                    posts: state.posts.map((post) =>
-                        post._id === updatedPost._id ? updatedPost : post
-                    ),
+                    posts: state.posts.map((post) => {
+                        if (post._id === postId) {
+                            return { ...post, like: post.like ? false : true, likeCount: updatedPost.body.likes };
+                        }
+                        return post;
+                    })
                 }));
             }
         } catch (error) {

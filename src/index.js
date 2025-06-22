@@ -17,6 +17,7 @@ import Messages from "./Pages/Messages/Messages"
 import FriendSearch from "./Pages/Friends/FriendSearch"
 import UserProfile from './Pages/Profile/UserProfile';
 import CreatePost from './Pages/Post/CreatePost';
+import SinglePostView from './Pages/Post/SinglePostView';
 
 const router = createBrowserRouter([
   { path: "/", element: <Layout><Home /></Layout> },
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
   { path: "/create-post", element: <CreatePost /> },
   { path: "/messages", element: <Messages /> },
   { path: "/search", element: <FriendSearch /> },
+  { path: "/single-post-view", element: <SinglePostView /> },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

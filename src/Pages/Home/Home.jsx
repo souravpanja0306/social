@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import SingalPost from '../../Components/SinglePost';
+import SingalPost from '../../Components/Post/SinglePost';
 import { usePostStore } from '../../Store/PostStore.js'
-import SinglePostSkeleton from '../../Components/SinglePostSkeleton.jsx'
+import SinglePostSkeleton from '../../Components/Post/SinglePostSkeleton.jsx'
 
 const Home = () => {
   const { posts, fetchPosts, isLoading } = usePostStore();
@@ -25,7 +25,7 @@ const Home = () => {
       {
         posts.length && posts.map((post, index) => {
           return (
-            <SingalPost data={post} postId={post._id} key={index} />
+            <SingalPost data={post} key={index} />
           )
         })
       }
